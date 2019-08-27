@@ -1,0 +1,408 @@
+*{
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+    font-family: 'Space Mono', monospace;
+    font-size: 30px;
+    line-height: 1.5;
+	background: #ca8951;
+	color: #2727e6;
+}
+
+/* div.wrapper{
+	position: relative;
+} */
+
+div.loading{
+	margin-top: 25%;
+}
+
+p.title{
+	font-size: 1.4em;
+}
+
+p.temp{
+	margin-top: 0;
+	font-weight: 700;
+	font-size: 2.2em;
+	animation: 1s ease-out 0s 1 fadein;
+}
+
+.errors{
+	color: red;
+	font-size: .7em;
+	text-align: center;
+}
+
+.degree{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: .17em;
+	font-weight: 700;
+	font-size: .7em;
+}
+
+button.rotated-text{
+	background: none;
+	border: none;
+	appearance: none;
+	outline: none;
+	font-family: 'Space Mono', monospace;
+	font-size: 1.5em;
+	color: #2727e6;
+	padding: 0;
+	margin: 0;
+    text-decoration: none;
+    border-bottom: 4px solid transparent;
+	transition: border-bottom 0.5s;
+	cursor: pointer;
+}
+
+button:hover, a.home:hover{
+    border-bottom-color: #272736;
+}
+
+@keyframes fadein{
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+.container{
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.main{
+	display: inline-block;
+	vertical-align: top;
+	width: 55%;
+	height: 499px;
+	animation: 1s ease-out 0s 1 fadein;
+}
+
+div.c-deg, div.f-deg{
+	display: inline-block;
+	vertical-align: top;
+	width: 22.5%;
+	height: 499px;
+}
+
+div.weather-header{
+	text-align: center;
+	padding-bottom: 1.1em;
+}
+
+a.home{
+	font-size: 2.2em;
+    text-decoration: none;
+    border-bottom: 4px solid transparent;
+	transition: border-bottom 0.5s;
+	color: white;
+}
+
+div.c-rotate{
+	position: relative;
+	height: 100%;
+
+}
+div.f-rotate{
+	position: relative;
+	height: 100%;
+	padding-left: 2.2em;
+}
+
+button.c{
+	position: absolute;
+    top: 50%;
+	right: 2.1em;
+    transform-origin: 0 0;
+    transform: rotate(-90deg) translate(-50%, 0);
+}
+
+button.f{
+	position: absolute;
+    top: 50%;
+    left: 2.1em;
+    transform-origin: 100% 0;
+    transform: rotate(90deg) translate(50%, 0);
+}
+
+div.about-box{
+	text-align: center;
+	padding: .5em 0;
+}
+
+.center{
+	text-align: center;
+}
+
+.current{
+	text-align: center;
+}
+
+div.box{
+	width: 100%;
+}
+
+div.weather-box{
+	text-align: center;
+	padding: .9em .5em 0 .5em ;
+	height: 350px;
+	background: white;
+	border-top: .5px solid #2727e6;
+	border-left: .5px solid #2727e6;
+	border-right: .5px solid #2727e6;
+}
+
+div.weather-box-contents{
+	animation: 1s ease-out 0s 1 fadein;
+}
+
+div.search-box{
+	text-align: center;
+	padding: .7em 1em 1em 1em;
+	border: .5px solid #2727e6;
+	background: #deb592;
+}
+
+div.search-box p{
+	margin: 0;
+	font-size: .7em;
+}
+
+p.description{
+	margin-top: 15px;
+	font-size: .7em;
+}
+
+div.label{
+	font-weight: bold;
+}
+
+#form{
+	width: 50%;
+	margin: 15px auto 0 auto;
+}
+
+#form input[type=text], textarea, select{
+	font-family:inherit;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 1.1rem;
+	margin: 0px;
+	padding: .5em 1em;
+	width: 74%;
+	border: 0;
+	text-shadow: none;
+	transition: all .25s linear;
+	outline: 0;
+}
+
+::-webkit-input-placeholder{ /* Chrome/Opera/Safari */
+	font-family: 'Space Mono', monospace;
+	color: silver;
+	font-size: 1.1rem;
+}
+::-moz-placeholder{ /* Firefox 19+ */
+	font-family: 'Space Mono', monospace;
+}
+:-ms-input-placeholder{ /* IE 10+ */
+	font-family: 'Space Mono', monospace;
+}
+:-moz-placeholder{ /* Firefox 18- */
+	font-family: 'Space Mono', monospace;
+}
+
+button#btn{
+	display: inline-block;
+	vertical-align: top;
+	width: 25%;
+	padding: .3em 0;
+	font-family: 'Space Mono', monospace;
+	font-size: 1.7rem;
+    appearance: none;
+	border: 0;
+	outline: none;
+    background-color: #2727e6;
+	color: white;
+	cursor: pointer;
+}
+
+div#info{
+	text-align: center;
+	font-size: .4em;
+	margin-top: 1.5em;
+	color: black;
+}
+
+div#info p a{
+	text-decoration: none;
+	color: #2727e6;
+}
+
+@media only screen and (max-width: 480px){
+	body{
+		font-family: 'Space Mono', monospace;
+		font-size: 25px;
+		line-height: 1.5;
+		background: #ca8951;
+		color: #2727e6;
+	}
+
+	.container{
+		margin: 0 auto;
+	}
+
+	.main{
+		display: inline-block;
+		vertical-align: top;
+		width: 75%;
+		height: 75vh;
+		animation: 1s ease-out 0s 1 fadein;
+		margin-bottom: 1em;
+	}
+
+	div.c-deg, div.f-deg{
+		display: inline-block;
+		vertical-align: top;
+		width: 12.5%;
+		height: 499px;
+	}
+	
+	div.weather-header{
+		text-align: center;
+		padding: 0.6em 0 .4em 0;
+	}
+
+	a.home{
+		text-decoration: none;
+		font-size: 1.4em;
+		text-decoration: none;
+		border-bottom: 4px solid transparent;
+		transition: border-bottom 0.5s;
+		color: white;
+	}
+
+	div.weather-box{
+		text-align: center;
+		padding: 1.9em .5em 1.2em .5em;
+		height: 350px;
+		background: white;
+		border-top: .5px solid #2727e6;
+		border-left: .5px solid #2727e6;
+		border-right: .5px solid #2727e6;
+	}
+	
+	div.search-box{
+		text-align: center;
+		padding: 2.3em 1em 2.5em 1em;
+		border: .5px solid #2727e6;
+		background: #deb592;
+	}
+	
+	#form{
+		width: 100%;
+		margin: .5em auto 0 auto;
+	}
+	
+	#form input[type=text], textarea, select{
+		font-family:inherit;
+		display: inline-block;
+		vertical-align: top;
+		font-size: 1.1rem;
+		margin: 0px;
+		padding: .5em 1em;
+		width: 80%;
+		border: 0;
+		text-shadow: none;
+		transition: all .25s linear;
+		outline: 0;
+	}
+	
+	::-webkit-input-placeholder{ /* Chrome/Opera/Safari */
+		font-family: 'Space Mono', monospace;
+		color: silver;
+		font-size: 1rem;
+	}
+	::-moz-placeholder{ /* Firefox 19+ */
+		font-family: 'Space Mono', monospace;
+		font-size: 1rem;
+	}
+	:-ms-input-placeholder{ /* IE 10+ */
+		font-family: 'Space Mono', monospace;
+		font-size: 1rem;
+	}
+	:-moz-placeholder{ /* Firefox 18- */
+		font-family: 'Space Mono', monospace;
+		font-size: 1rem;
+	}
+	
+	button#btn{
+		display: inline-block;
+		vertical-align: top;
+		width: 20%;
+		font-family: 'Space Mono', monospace;
+		font-size: 1.7rem;
+		appearance: none;
+		border: 0;
+		outline: none;
+		background-color: #2727e6;
+		color: white;
+		cursor: pointer;
+	}
+
+	button.rotated-text{
+		background: none;
+		border: none;
+		appearance: none;
+		outline: none;
+		font-family: 'Space Mono', monospace;
+		font-size: 1.5em;
+		color: #2727e6;
+		padding: 0;
+		margin: 0;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	div.c-rotate{
+		position: relative;
+		height: 100%;
+		margin-right: 5px;
+	
+	}
+
+	div.f-rotate{
+		position: relative;
+		height: 100%;
+	}
+	
+	button.c{
+		position: absolute;
+		top: 50%;
+		right: -3px;
+		transform-origin: 0 0;
+		transform: rotate(-90deg) translate(-50%, 0);
+	}
+	
+	button.f{
+		position: absolute;
+		top: 50%;
+		left: 5px;
+		transform-origin: 100% 0;
+		transform: rotate(90deg) translate(50%, 0);
+	}
+
+	div#info{
+		text-align: center;
+		font-size: .4em;
+		margin-top: 1.5em;
+		color: black;
+	}
+}

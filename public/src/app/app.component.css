@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;	
+}
+
+div.flex-container {
+	display: flex;
+	justify-content: center;
+}
+
+div.box {
+	
+	padding: 50px 0;
+}
+
+div.box h1 {
+	text-align: center;
+}
+
+input[type=text] {
+	font-size: 16px;
+	margin: 8px 0;
+	padding: 5px 20px;
+}
+
+textarea {
+	font-size: 16px;
+}
+
+input[type=submit] {
+	padding: 10px 25px;
+	font-size: 18px;
+} */

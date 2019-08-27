@@ -1,0 +1,9 @@
+<div class="weather-box">
+    <div class="weather-box-contents">
+        <p class="title center">{{searchedCity}}</p>
+        <p class="temp center" *ngIf="showNewTemp === 'searchedCTemp'">{{searchedCTemp}}<span class="degree">{{searchedCDeg}}</span></p>
+        <p class="temp center" *ngIf="showNewTemp === 'searchedFTemp'">{{searchedFTemp}}<span class="degree">{{searchedFDeg}}</span></p>
+        <p class="description center">{{newCity.weather[0].description}}</p>
+        <h2 class="center"><img src="http://openweathermap.org/img/wn/{{newCity.weather[0].icon}}@2x.png"></h2>
+    </div>
+</div>
