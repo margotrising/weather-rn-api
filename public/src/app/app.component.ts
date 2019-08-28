@@ -14,8 +14,6 @@ export class AppComponent implements OnInit {
   weatherData:any;
   fTemp:number;
   cTemp:number = null;
-  // type:string = 'f';
-  // temp:number;
   
   constructor(private _http: HttpService){};
 
@@ -45,7 +43,6 @@ export class AppComponent implements OnInit {
 
   searchWeather(newCity:string){
     this._http.searchNewCity(newCity).subscribe((res:any)=>{
-      console.log('New searched city:', res);
       this.weatherData = res;
       this.cTemp= null;
       this.fTemp=Math.round(this.weatherData.main.temp)
@@ -53,19 +50,6 @@ export class AppComponent implements OnInit {
   }
 
   convertToCelsius() {
-    console.log('C temp:', Math.round((this.weatherData.main.temp - 32) * 5/9));   
     this.cTemp= Math.round((this.weatherData.main.temp - 32) * 5/9);
-    console.log(this.cTemp);
-    
   }
-
-  // convertToCelsius(temp:number) {
-  //   console.log('C temp:', Math.round((temp - 32) * 5/9));   
-  //   return Math.round((temp - 32) * 5/9);
-  // }
-
-  // roundTemp(temp:number) {
-  //   console.log('F temp:', temp);    
-  //   return Math.round(temp);
-  // }
 }
