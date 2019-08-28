@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, Output  } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, Output  } from '@angular/core';
 import { HttpService } from '../http.service';
 
 
@@ -7,7 +7,7 @@ import { HttpService } from '../http.service';
   templateUrl: './search-city-weather.component.html',
   styleUrls: ['./search-city-weather.component.css']
 })
-export class SearchCityWeatherComponent implements OnChanges {
+export class SearchCityWeatherComponent implements OnInit {
   @Input() searchWeather: any;
 
   newCity:any;
@@ -21,16 +21,21 @@ export class SearchCityWeatherComponent implements OnChanges {
 
   constructor(private _http: HttpService) { }
 
-  ngOnChanges(changes: SimpleChanges){
-    this.getNewWeather();
+  ngOnInit(){
+    console.log('in the component:', this.searchWeather);
+    
   }
 
-  getNewWeather(){
-    this.newCity = this.searchWeather;
-    this.searchedCity = this.newCity.name;
-    this.searchedFTemp = Math.round(this.newCity.main.temp);
-    this.searchedFDeg='°F';
-    this.searchedCTemp = Math.round((this.newCity.main.temp - 32) * 5/9);
-    this.searchedCDeg='°C';    
-  }
+  // ngOnChanges(changes: SimpleChanges){
+  //   this.getNewWeather();
+  // }
+
+  // getNewWeather(){
+  //   this.newCity = this.searchWeather;
+  //   this.searchedCity = this.newCity.name;
+  //   this.searchedFTemp = Math.round(this.newCity.main.temp);
+  //   this.searchedFDeg='°F';
+  //   this.searchedCTemp = Math.round((this.newCity.main.temp - 32) * 5/9);
+  //   this.searchedCDeg='°C';    
+  // }
 }

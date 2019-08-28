@@ -5,33 +5,27 @@
     <div class="wrapper">
         <div class="c-deg">
             <div class="c-rotate">
-                <button id="currentCTemp" *ngIf="!newSearchRes" (click)="showTemp = 'currentCTemp'" class="rotated-text c">°C</button>
-                <button id="newCTemp" *ngIf="newSearchRes" (click)="mainShowNewTemp = 'searchedCTemp'" class="rotated-text c">°C</button>
+                <button id="currentCTemp" (click)=convertToCelsius() class="rotated-text c">°C</button>
             </div>
         </div>
         <div class="main">
-            <app-search-city-weather *ngIf="newSearchRes; else currentWeather" [searchWeather]="newSearchRes"></app-search-city-weather>
-            <ng-template #currentWeather>
-                <div class="weather-box">
-                    <div class="weather-box-contents">
-                        <div class="loading" *ngIf="!currentFTemp || !currentCTemp">
-                            <p>one moment...</p>
-                        </div>
-                        <div class="weather-box-contents">    
-                            <p class="title center">{{currentCity}}</p>
-                            <p class="temp center" *ngIf="showTemp === 'currentCTemp'">{{currentCTemp}}<span class="degree">{{CDeg}}</span></p>
-                            <p class="temp center" *ngIf="showTemp === 'currentFTemp'">{{currentFTemp}}<span class="degree">{{FDeg}}</span></p>
-                            <p class="description center">{{current.weather[0].description}}</p>
-                            <h2 class="center"><img src="http://openweathermap.org/img/wn/{{current.weather[0].icon}}@2x.png"></h2>
-                        </div>
-                    </div>
+            <div class="weather-box">
+                <div class="weather-box-contents">
+                    <div class="loading" *ngIf="!weatherData">
+                        <p>one moment...</p>
+                    </div>  
+                    <p class="title">{{weatherData.name}}</p>
+                    <!-- <p class="temp">{{type === 'c' ? convertToCelsius(weatherData.main.temp) : roundTemp(weatherData.main.temp)}}<span class="degree">{{type === 'c' ? '°C' : '°F'}}</span></p> -->
+                    <p class="temp" *ngIf="cTemp">{{cTemp}}<span class="degree" *ngIf="cTemp">°C</span></p>
+                    <p class="temp" *ngIf="!cTemp">{{fTemp}}<span *ngIf="weatherData" class="degree">°F</span></p>
+                    <p class="description">{{weatherData.weather[0].description}}</p>
+                    <h2><img src="http://openweathermap.org/img/wn/{{weatherData.weather[0].icon}}@2x.png"></h2>
                 </div>
-            </ng-template>
+            </div>
             <div class="search-box">
-                <p class="search center">Search another city</p>
+                <p class="search">Search another city</p>
                 <p *ngIf="geoError.hasOwnProperty('error')" class="errors">{{ geoError}}</p>
                 <form (submit)="searchWeather(newCity)" id="form">
-                    <!-- <label for="city" type="hidden">City Name </label> -->
                     <input type="text" name="city" [(ngModel)]="newCity" id="name" placeholder="Enter City Name"/>
                     <button type="submit" id="btn"><i class="fas fa-arrow-right"></i></button>
                 </form>
@@ -39,8 +33,7 @@
         </div>
         <div class="f-deg">
             <div class="f-rotate">
-                <button *ngIf="!newSearchRes" (click)="showTemp = 'currentFTemp'" class="rotated-text f">°F</button>
-                <button *ngIf="newSearchRes" (click)=switchFTemp() class="rotated-text f">°F</button>
+                <button (click)="cTemp = null" class="rotated-text f">°F</button>
             </div>
         </div> 
     </div>
